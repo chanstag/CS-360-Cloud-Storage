@@ -1,0 +1,141 @@
+
+/*GENERIC*/
+
+#homeB
+{
+	background-image: url("../images/sky.jpg");
+	background-size: 100%;
+	background-repeat:no-repeat;
+	background-attachment: fixed;
+	font-family: "Arial";
+}
+.left
+{
+	float:left;
+}
+.right
+{
+	float: right;
+}
+.centered
+{
+	text-align: center;
+}
+.under
+{
+	clear: both;
+}
+
+
+/*LOGIN*/
+
+#loginBox
+{
+	display: block;
+	margin-top: 15%;
+	background-color: #f8f8ff;
+	width: 15%;
+	margin-left: 42.5%;
+	text-align: center;
+}
+
+#regBox
+{
+	display: none;
+	margin-top: 10%;
+	background-color: #f8f8ff;
+	width: 15%;
+	margin-left: 42.5%;
+	text-align: center;
+}
+
+#registerFail
+{
+	display: none;
+}
+.buttonBox
+{
+	margin: auto;
+	margin-top: 5px;
+	width: 80%;
+}
+.button
+{
+	width: 65px;
+	padding: 5px;
+	margin: 0px 5px;
+	background-color: #415275;
+	text-align: center;
+	color: #e9e9ea;
+}
+
+/*CLOUD*/
+
+#headTitle
+{
+	color: green;
+	text-decoration: none;
+	margin-left: 5px;
+	font-weight: "bold";
+	font-size: 40px;
+	padding-top: 10px;
+}
+
+#headB
+{	
+	position: fixed;
+	top: 0;
+	right: 1px;
+	height: 68px;
+	width: 100%;
+		
+	background-color: #f8f8ff;
+	border-bottom: 1px solid #0000ff;
+}
+
+#userB
+{
+	margin: 5px;
+}
+
+#userMenu
+{
+	width: 142px;
+	font-size: 16px;
+	margin: 21px 0px;
+}
+
+.content
+{
+	width: 80%;
+	margin: 78px 10% 0px;
+	min-height: 200px;
+	background-color: #f8f8ff;
+	border: 1px solid #0000ff;
+	font-size: 15px;
+}
+
+#menu
+{
+	width: 130px;
+	display: none;
+	font-size:20px;
+	position: absolute;
+	top: 63px;
+	right: 5px;
+}
+
+.menuBox
+{
+	padding: 19px 0px;
+	background-color: #f8f8ff;
+	border: 1px solid #0000ff;
+}
+
+.picWrap
+{
+	height: 43px;
+	padding: 5px;
+	background-color: #f8f8ff;
+	border: 1px solid #0000ff;
+}
