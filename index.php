@@ -86,4 +86,56 @@ $body = "<div id='loginBox'>
 }
 echo $top.$body;
 
+function login($username,$password){
+	$host = "localhost:3036";
+	$user = "root";
+	$pass = '"Ubuntu 14.04";
+
+	$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+
+	if($conn->connect-errno){
+		return "No MySQL server";
+	}
+	$hashPassword = passwordhash($password,PASSWORD_DEFAULT);
+	$registeredUser = $conn->query("SELECT * FROM users WHERE usernames = ".$username." AND passwords = ".$hashPassword);
+	if(!$registeredUser){
+		return "User not registered";
+	}
+	else{
+		return "User: ". $username;
+	}
+}
+
+function register($username, $password){
+	$host = "localhost:3036";
+	$user = "root";
+	$pass = "Ubuntu 14.04";
+	$database = "bigreddocstorage";
+
+	$conn = new mysqli($host,$user,$pass,$database);
+
+	if($conn->connect-errno){
+		return "No MySQL server";
+	}
+
+	
+	$previousUsername = $conn->query("SELECT * FROM users WHERE usernames = ".$username);
+	if(!$previousUsername){
+		$hashPassword = password_hash($password, PASSWORD_DEFAULT);
+		$sql = "INSERT TO groups".
+			"(groupName,members)".
+			"VALUES (".$username.")";
+		$conn->query($sql);
+		$sql = "INSERT TO users".
+			"(usernames,passwords,groups)".
+			"VALUES (".$username.",".$hashPassword.",".$username")";
+		$conn->query($sql);
+		$conn->close();
+		return "Success";
+	}
+	else{
+		$conn->close();
+		return "Username already exists";
+	}
+}
 ?>
