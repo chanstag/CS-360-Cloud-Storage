@@ -11,8 +11,8 @@ $top= " <!DOCTYPE html>
 <title>$title</title>
 
 <link rel='icon' href='images/cloud.png'>
-<link rel='stylesheet' type='text/css' href='css/styles.css'>
-<script src='js/main.js'></script>
+<link rel='stylesheet' type='text/css' href='styles.css'>
+<script src='main.js'></script>
 </head>
 <body $back>";
 
