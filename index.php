@@ -16,7 +16,7 @@ $top= " <!DOCTYPE html>
 </head>
 <body $back>";
 
-$_SESSION['id_user'] = 1;
+$_SESSION['id_user'] = null;
 $_SESSION['name_user'] = "Steve";
 
 if(isset($_SESSION['id_user']))
@@ -89,7 +89,7 @@ echo $top.$body;
 function login($username,$password){
 	$host = "localhost:3036";
 	$user = "root";
-	$pass = '"Ubuntu 14.04";
+	$pass = "Ubuntu 14.04";
 
 	$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
 
@@ -128,7 +128,7 @@ function register($username, $password){
 		$conn->query($sql);
 		$sql = "INSERT TO users".
 			"(usernames,passwords,groups)".
-			"VALUES (".$username.",".$hashPassword.",".$username")";
+			"VALUES (".$username.",".$hashPassword.",".$username.")";
 		$conn->query($sql);
 		$conn->close();
 		return "Success";
