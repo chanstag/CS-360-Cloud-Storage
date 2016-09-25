@@ -3,51 +3,46 @@
 session_start();
 
 
-$back = "id= 'homeB'";
-$title = "Cloud Storage";
-$name = "smith";
 $top= " <!DOCTYPE html>
 <html>
-<head>
-<title>$title</title>
+	<head>
+		<title>Cloud Storage</title>
 
-<link rel='icon' href='images/cloud.png'>
-<link rel='stylesheet' type='text/css' href='styles.css'>
-<script src='main.js'></script>
-</head>
-<body $back>";
+		<link rel='icon' href='images/cloud.png'>
+		<link rel='stylesheet' type='text/css' href='styles.css'>
+		<script src='main.js'></script>
+	</head>
+	<body id= 'homeB'>";
 
-$_SESSION['id_user'] = null;
-$_SESSION['name_user'] = "Steve";
 
-if(isset($_SESSION['id_user']))
+if(isset($_SESSION['name_user']))
 {
 	//show the file storage for user
 	$name = $_SESSION['name_user'];
 	$body = "
-	<div id= 'headB'>	
-		<div class= 'right' id= 'userB' onclick='menu(\"menu\");'>
-			<div class= 'left centered' id= 'userMenu'>$name</div>
-			<img src= 'images/user.jpg' height='58'>			
+		<div id= 'headB'>	
+			<div class= 'right' id= 'userB' onclick='menu(\"menu\");'>
+				<div class= 'left centered' id= 'userMenu'>$name</div>
+				<img src= 'images/user.jpg' height='58'>			
+			</div>
+			<div class= 'right centered headMenu' onclick='group();'>Groups</div>
+			<div class= 'right centered headMenu' onclick='loadFiles(\"$name\");'>Personal</div>
+			<div id= 'titlebox'>
+				<div id= 'headTitle'>CLOUD STORAGE PROJECT</div>
+			</div>
+			<div id='menu'>
+				<div class='centered menuBox'>Upload Files</div>
+				<div class='centered menuBox'>Logout</div>
+			</div>
 		</div>
-		<div id= 'titlebox'>
-			<div id= 'headTitle'>CLOUD STORAGE PROJECT</div>
-		</div>
-		<div id='menu'>
-		<div class='centered menuBox'>Upload Files</div>
-		<div class='centered menuBox'>Logout</div>
-		</div>
-	</div>
-	
-		<div class='under content'>
-			<div class='right picWrap'><img src='images/delete.png' height='43'></div>
-			<div class='right picWrap'><img src='images/down.png' height='43'></div>
-			<div class='menuBox'>CS 360 Report</div>
-		</div>
-	
+		
+			<div class='under' id='content'>
+				
+			</div>
 	
 		
-	";
+	</body>
+</html>	";
 	
 }
 
@@ -55,10 +50,10 @@ else{
 	//show the login & register page
 $body = "<div id='loginBox'>
 			<h1>Login</h1>
-			Email:<br/>
-			<input type='text' id=''><br/>
+			Username:<br/>
+			<input type='text' id='logUser'><br/>
 			Password:<br/>
-			<input type='password' id=''><br/>
+			<input type='password' id='logPass'><br/>
 			<div class='buttonBox'>
 				<div class='button right' onclick='logreg();'>Register</div>
 				<div class='button' onclick='login();'>Login</div>
@@ -66,12 +61,8 @@ $body = "<div id='loginBox'>
 		</div>
 		<div id='regBox'>
 			<h1>Register</h1>
-			First Name:<br/>
-			<input type='text' id='firstName'><br/>
-			Last Name:<br/>
-			<input type='text' id='lastName'><br/>
-			Email:<br/>
-			<input type='text' id='registerEmail'><br/>
+			Username:<br/>
+			<input type='text' id='regUser'><br/>
 			Password:<br/>
 			<input type='password' id='registerPass'><br/>
 			Confirm Password:<br/>
@@ -86,6 +77,7 @@ $body = "<div id='loginBox'>
 </html> ";
 }
 echo $top.$body;
+
 
 function login($username,$password){
 	$host = "localhost:3036";
@@ -155,4 +147,5 @@ function register($username, $password){
 		return "Username already exists";
 	}
 }
+
 ?>
