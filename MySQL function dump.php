@@ -157,6 +157,32 @@ function getAllGroups($username){
 		}
 }
 
+//Gives all the users in a given group returns an array if successful
+function getAllUsers($groupName){
+		$host = "localhost:3036";
+		$user = "root";
+		$pass = "Ubuntu14.04";
+
+		$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+
+		if($conn->connect_error){
+			$conn->close;
+			return "No MySQL server";
+		}
+		else{
+			$sql = "SELECT FROM groups WHERE groupName = $groupName";
+			$result = $conn->query($sql);
+			$users = [];
+			for($i = 0; i < $result->num_rows; i++){
+				if($row = info->fetch_assoc()){
+					users[$i] = $row["member"];
+				}
+			}
+			$conn->close();
+			return users;
+		}
+}
+
 
 
 
