@@ -41,13 +41,13 @@ function register($username, $password){
 		$conn->real_escape_string($hashPassword);
 		$sql = "INSERT INTO groups ".
 			"(groupName) ".
-			"VALUES ('$username')";
+			"VALUES ('$username', '$username')";
 		
 		$conn->query($sql);
 		$sql = "INSERT INTO users".
-			"(username,password,groups) ".
+			"(username,password) ".
 			"VALUES ".
-			"('$username','$hashPassword','#username')";
+			"('$username','$hashPassword')";
 			
 		$conn->query($sql);
 		$conn->close();
