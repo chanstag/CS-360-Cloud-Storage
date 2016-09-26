@@ -112,6 +112,26 @@ function removeUsersFromGroup($groupName, array $users){
 	
 }
 
+//Removes User from database
+function removeUser($username){
+		$host = "localhost:3036";
+		$user = "root";
+		$pass = "Ubuntu14.04";
+
+		$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+
+		if($conn->connect_error){
+			$conn->close;
+			return "No MySQL server";
+		}
+		else{
+			$sql = "DELETE FROM users WHERE username = $username";
+			$conn->query($sql);
+			$conn->close();
+			return "Success";
+		}
+}
+
 
 
 
