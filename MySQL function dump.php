@@ -131,6 +131,31 @@ function removeUser($username){
 			return "Success";
 		}
 }
+//Returns the groups that a username is in, including their personal group
+function getAllGroups($username){
+			$host = "localhost:3036";
+		$user = "root";
+		$pass = "Ubuntu14.04";
+
+		$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+
+		if($conn->connect_error){
+			$conn->close;
+			return "No MySQL server";
+		}
+		else{
+			$sql = "SELECT FROM groups WHERE member = $username";
+			$result = $conn->query($sql);
+			$groups = [];
+			for($i = 0; i < $result->num_rows; i++){
+				if($row = info->fetch_assoc()){
+					groups[$i] = $row["groupName"];
+				}
+			}
+			$conn->close();
+			return groups;
+		}
+}
 
 
 
