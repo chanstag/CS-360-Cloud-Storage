@@ -40,7 +40,7 @@ function register($username, $password){
 		$hashPassword = password_hash($password, PASSWORD_DEFAULT);
 		$conn->real_escape_string($hashPassword);
 		$sql = "INSERT INTO groups ".
-			"(groupName) ".
+			"(groupName,members) ".
 			"VALUES ('$username', '$username')";
 		
 		$conn->query($sql);
