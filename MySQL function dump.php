@@ -64,6 +64,14 @@ function removeGroup($groupName){
 			$sql = "DELETE FROM groups WHERE groupName = $groupName";
 			$conn->query($sql);
 			$conn->close();
+			//Put pathname to folde in
+			$files = glob("pathname/". $groupName);
+			foreach($files as $file){
+				if(is_file($file)){
+					unlink($file);
+				}
+			}
+			rmdir("pathname/". $groupName);
 			return "Success";
 		}
 	
@@ -128,6 +136,14 @@ function removeUser($username){
 			$sql = "DELETE FROM users WHERE username = $username";
 			$conn->query($sql);
 			$conn->close();
+			//Put pathname to folde in
+			$files = glob("pathname/". $username);
+			foreach($files as $file){
+				if(is_file($file)){
+					unlink($file);
+				}
+			}
+			rmdir("pathname/". $username);
 			return "Success";
 		}
 }
