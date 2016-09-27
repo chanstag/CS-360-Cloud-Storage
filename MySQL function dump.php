@@ -49,6 +49,7 @@ function makeGroup($groupname, string $username){
 	
 }
 //Removes an entire group
+//needs to delete directory present on server too
 function removeGroup($groupName){
 		$host = "localhost:3036";
 		$user = "root";
@@ -113,6 +114,7 @@ function removeUsersFromGroup($groupName, array $users){
 }
 
 //Removes User from database
+//Chandler: need to consider removing from server directory too
 function removeUser($username){
 		$host = "localhost:3036";
 		$user = "root";
