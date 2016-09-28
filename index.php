@@ -72,6 +72,7 @@ $body = "<div id='loginBox'>
 				<div class='button' onclick='register();'>Register</div>
 			</div>
 			<div id='registerFail'>There was a problem registering, please try again later.</div>
+			<div id='lginFail'>There was a problem loging in, please try again later.</div>
 		</div>
 	</body>
 </html> ";

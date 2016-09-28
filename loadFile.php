@@ -2,8 +2,23 @@
 
 session_start();
 $path = $_POST['user'];
+$type = $_POST['type'];
 
-//echo "here";
+if($type == "group"){
+	echo "<div class='menuBox'><div class='smaller left'><div class='button right' onclick='groupCreate()'>Add</div>Add Member: <input type='text' id='groupName'></div>
+	<div class='left smaller'>
+				<div class='button right' style='width:130px' onclick='groupCreate()'>View Members</div>
+			</div>
+			<div class='right smaller'>
+				<div class='button right' style='width:130px' onclick='groupRemove(\"$path\")'>Remove Group</div>
+			</div>
+			<div class='smaller'>
+				<div class='button right' onclick='groupCreate()'>Remove</div>
+				Remove Member: <input type='text' id='groupName'>
+			</div>
+			
+			</div>";
+}
 
 if ($handle = opendir($path)) {
 
