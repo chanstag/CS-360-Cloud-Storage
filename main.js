@@ -52,9 +52,9 @@ function register(){
 	}
 }
 
-function loadFiles(i){
+function loadFiles(i, t){
 	
-	alert("third");
+	//alert("third");
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function()
 	{
@@ -65,8 +65,8 @@ function loadFiles(i){
 	};
 	xhttp.open("POST", "loadFile.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send("user="+i);
-	alert("fourth");
+	xhttp.send("user="+i+"&type="+t);
+	//alert("fourth");
 	
 }
 
@@ -87,7 +87,7 @@ function group(){
 
 function groupCreate()
 {
-	alert("first");
+	//alert("first");
 	var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function()
 		{
@@ -106,8 +106,8 @@ function groupCreate()
 		};
 		xhttp.open("POST", "groupcreate.php", true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xhttp.send("&user="+e('groupName').value);
-		alert("second");
+		xhttp.send("&newGroup="+e('groupName').value);
+		//alert("second");
 		
 	
 }
@@ -134,4 +134,31 @@ function login()
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhttp.send("&user="+e('logUser').value+
 						"&pass="+e('logPass').value);
+}
+
+function groupRemove(i)
+{
+	//alert("first");
+	var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function()
+		{
+			if (xhttp.readyState == 4 && xhttp.status == 200)
+			{
+				if(xhttp.responseText == "1")
+				{
+					window.location.reload(true);
+				}
+				else
+				{
+					alert(xhttp.responseText);
+					//s('registerFail').display = 'block';
+				}
+			}
+		};
+		xhttp.open("POST", "removeGroup.php", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("&group="+i);
+		//alert("second");
+		
+	
 }
