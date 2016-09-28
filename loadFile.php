@@ -7,7 +7,7 @@ $type = $_POST['type'];
 if($type == "group"){
 	echo "<div class='menuBox'><div class='smaller left'><div class='button right' onclick='groupCreate()'>Add</div>Add Member: <input type='text' id='groupName'></div>
 	<div class='left smaller'>
-				<div class='button right' style='width:130px' onclick='groupCreate()'>View Members</div>
+				<div class='button right' style='width:130px' onclick='viewMembers(\"$path\")'>View Members</div>
 			</div>
 			<div class='right smaller'>
 				<div class='button right' style='width:130px' onclick='groupRemove(\"$path\")'>Remove Group</div>
@@ -29,7 +29,7 @@ if ($handle = opendir($path)) {
 		
 		echo "<div class='under'>
 		<div class='right picWrap'><img src='images/delete.png' height='43'></div>
-			<div class='right picWrap'><a href='download.php?file=" . $entry . "><img src='images/down.png' height='43'></a></div>
+			<div class='right picWrap'><img onclick='download(\"$path\", \"$entry\")' src='images/down.png' height='43'></a></div>
 			<div class='menuBox'>$entry</div><div/>";
 		}
     }

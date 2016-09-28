@@ -33,7 +33,7 @@ function removeGroup($groupName){
 					unlink($file);
 				}
 			}
-			rmdir("pathname/". $groupName);
+			rmdir($groupName);
 			return "Success";
 		}
 	

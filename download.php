@@ -5,6 +5,7 @@
     //$file_path = $target_dir . $file; //exact path of the file
         
     $file_path = $_POST['user'];
+	$file = $_POST['file'];
     //if file exists, produce download link with headers, otherwise exits with file not found
     if(!$file) {
         die ('file not found');
@@ -15,8 +16,8 @@
         header('Content-Transfer-Encoding: binary');
         header('Content-Type: application/octet-stream');
         header('Connection: Keep-Alive');
-        header('Content-Length:'. filesize($file_path));
+        header('Content-Length:'. filesize($file_path."/".$file));
         ob_clean();
-        readfile($file_path);
+        readfile($file_path."/".$file);
     }
 ?>

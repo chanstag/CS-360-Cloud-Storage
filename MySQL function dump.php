@@ -65,7 +65,7 @@ function removeGroup($groupName){
 			$conn->query($sql);
 			$conn->close();
 			//Put pathname to folde in
-			$files = glob("users/". $groupName);
+			$files = glob("pathname/". $groupName);
 			foreach($files as $file){
 				if(is_file($file)){
 					unlink($file);
@@ -137,7 +137,7 @@ function removeUser($username){
 			$conn->query($sql);
 			$conn->close();
 			//Put pathname to folde in
-			$files = glob("users/". $username);
+			$files = glob("pathname/". $username);
 			foreach($files as $file){
 				if(is_file($file)){
 					unlink($file);
