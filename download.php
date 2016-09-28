@@ -1,8 +1,10 @@
 <?php
-    $userName = "Bob";
-    $target_dir = "users/" . $userName . "/";
-    $file = basename($_GET['file']); //$file becomes the name of the file clicked to download with extension
-    $file_path = $target_dir . $file; //exact path of the file
+    //$userName = "Bob";
+    //$target_dir = "users/" . $userName . "/";
+    //$file = basename($_GET['file']); //$file becomes the name of the file clicked to download with extension
+    //$file_path = $target_dir . $file; //exact path of the file
+        
+    $file_path = $_POST['user'];
     //if file exists, produce download link with headers, otherwise exits with file not found
     if(!$file) {
         die ('file not found');
