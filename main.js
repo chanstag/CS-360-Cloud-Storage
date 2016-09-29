@@ -162,3 +162,39 @@ function groupRemove(i)
 		
 	
 }
+
+function download(i, t){
+	
+	//alert("third");
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function()
+	{
+		if (xhttp.readyState == 4 && xhttp.status == 200)
+		{
+			e('content').innerHTML = xhttp.responseText;
+		}
+	};
+	xhttp.open("POST", "download.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send("user="+i+"&file="+t);
+	//alert("fourth");
+	
+}
+
+function viewMembers(i){
+	
+	//alert("third");
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function()
+	{
+		if (xhttp.readyState == 4 && xhttp.status == 200)
+		{
+			e('content').innerHTML = xhttp.responseText;
+		}
+	};
+	xhttp.open("POST", "viewMembers.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send("group="+i);
+	//alert("fourth");
+	
+}
