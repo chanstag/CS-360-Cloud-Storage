@@ -28,10 +28,10 @@ if ($handle = opendir($path)) {
         if(!($entry === "." || $entry === "..")){
 		
 		echo "<div class='under'>
-		<div class='right picWrap'><img src='images/delete.png' height='43'></div>
-			<div class='right picWrap'><img onclick='download(\"$path\", \"$entry\")' src='images/down.png' height='43'></a></div>
-			<div class='menuBox'>$entry</div><div/>";
-		}
+                <div class='right picWrap'><a href='delete.php?file=".$entry."'><img src='images/delete.png' height='43'></a></div>
+                        <div class='right picWrap'><a href='download.php?file=".$entry."'><img src='images/down.png' height='43'></a></div>
+                        <div class='menuBox'>$entry</div><div/>";
+                }
     }
 };
 
