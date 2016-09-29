@@ -109,13 +109,19 @@
 {
 	width: 100px;
 	font-size: 16px;
-	margin: 26px 0px;
+	padding: 25px 0px;
+	background-color: #f8f8ff;
+}
+
+.headMenu:hover
+{
+	background-color: #ffffff;
 }
 
 #content
 {
 	width: 80%;
-	margin: 78px 10% 0px;
+	margin: 10px 10% 0px;
 	min-height: 200px;
 	background-color: #f8f8ff;
 	border: 1px solid #0000ff;
@@ -149,12 +155,12 @@
 
 .smaller
 {
-	width: 28%;
-	margin: 2px 11%;
+	width: 18%;
+	margin: 0px 2%;
 }
 
 #form {
-    margin: 10px 10% 0px;
+    margin: 78px 10% 0px;
     width: 350px;
     color: #0000ff;
     border: 1px solid #0000ff;

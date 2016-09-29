@@ -25,8 +25,8 @@ if(isset($_SESSION['name_user']))
 				<div class= 'left centered' id= 'userMenu'>$name</div>
 				<img src= 'images/user.jpg' height='58'>			
 			</div>
-			<div class= 'right centered headMenu' onclick='group();'>Groups</div>
-			<div class= 'right centered headMenu' onclick='loadFiles(\"$name\");'>Personal</div>
+			<div class= 'right centered headMenu' id='group' onclick='group();'>Groups</div>
+			<div class= 'right centered headMenu' id='personal' onclick='loadFiles(\"$name\", \"personal\");'>Personal</div>
 			<div id= 'titlebox'>
 				<div id= 'headTitle'>CLOUD STORAGE PROJECT</div>
 			</div>
@@ -35,7 +35,7 @@ if(isset($_SESSION['name_user']))
 				<div class='centered menuBox'>Logout</div>
 			</div>
 		</div>
-		<br><br><br><br><br><br><br>
+		
                 <div id='form'>
                         <form action='upload.php' method='post' enctype='multipart/form-data'>
                                 Select a File To Upload:
@@ -53,7 +53,7 @@ if(isset($_SESSION['name_user']))
 	</body>
 </html>	";
 	
-}
+}//<br><br><br><br><br><br><br>
 
 else{
 	//show the login & register page

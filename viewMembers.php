@@ -23,7 +23,7 @@ $groupName = $_POST['group'];
 			while($row = $result->fetch_assoc()){
 					$user = $row["members"];
 					echo "<div class='under'>		
-			<div class='menuBox'>$user</div><div/>";
+			<div class='menuBox'><div class='button right' onclick='removeFromGroup(\"$user\", \"$groupName\")'>Remove</div>$user</div><div/>";
 				
 			}
 			$conn->close();
