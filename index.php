@@ -35,6 +35,15 @@ if(isset($_SESSION['name_user']))
 				<div class='centered menuBox'>Logout</div>
 			</div>
 		</div>
+		<br><br><br><br><br><br><br>
+                <div id='form'>
+                        <form action='upload.php' method='post' enctype='multipart/form-data'>
+                                Select a File To Upload:
+                                <input type='file' name='fileToUpload' id='fileToUpload'>
+                                <br/>
+                                <input type='submit' value='Upload File' name='submit'>
+                        </form>
+                </div>
 		
 			<div class='under' id='content'>
 				
