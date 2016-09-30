@@ -1,18 +1,19 @@
 
 <?php
-    $userName = "Bob";  //not sure how the user's directory will be stored. Can be changed.
-    $target_dir = "users/" . $userName . "/"; //  users/ is the root directory that holds all registrerd users
+    session_start();
+    //$userName = "michael_butera";  //hardcoded my username
+    $userName = $_SESSION['name_user'];
+    $target_dir = "/var/www/html/" . $userName . "/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $isUploaded = 1;
-    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
     // Check if file already exists
     if (file_exists($target_file)) {
         echo "The file already exists.<br/>";
         $isUploaded = 0;
     }
-    // Check file size, limeted to 10MB
-    if ($_FILES["fileToUpload"]["size"] > 10000000) {
+    // Check file size, limeted to 50MB
+    if ($_FILES["fileToUpload"]["size"] > 50000000) {
         echo "Your file is too large.<br/>";
         $isUploaded = 0;
     }
