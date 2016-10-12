@@ -21,5 +21,7 @@ $sql = "INSERT INTO groups ".
 		
 		$conn->query($sql);
 mkdir($newGroup);
+$_SESSION['last'] = $newGroup;
+$_SESSION['lastType'] = "group";
 echo 1;
 ?>
