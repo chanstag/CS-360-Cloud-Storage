@@ -11,15 +11,16 @@ $top= " <!DOCTYPE html>
 		<link rel='icon' href='images/cloud.png'>
 		<link rel='stylesheet' type='text/css' href='styles.css'>
 		<script src='main.js'></script>
-	</head>
-	<body id= 'homeB'>";
+	</head>";
 
 
 if(isset($_SESSION['name_user']))
 {
 	//show the file storage for user
 	$name = $_SESSION['name_user'];
-	$body = "
+	$folder = $_SESSION['last'];
+	$type = $_SESSION['lastType'];
+	$body = "<body id= 'homeB' onload='loadFiles(\"$folder\", \"$type\");'>
 		<div id= 'headB'>	
 			<div class= 'right' id= 'userB' onclick='menu(\"menu\");'>
 				<div class= 'left centered' id= 'userMenu'>$name</div>
@@ -31,8 +32,7 @@ if(isset($_SESSION['name_user']))
 				<div id= 'headTitle'>CLOUD STORAGE PROJECT</div>
 			</div>
 			<div id='menu'>
-				<div class='centered menuBox'>Upload Files</div>
-				<div class='centered menuBox'>Logout</div>
+				<div class='centered menuBox' onclick='logout();'>Logout</div>
 			</div>
 		</div>
 		
@@ -57,7 +57,7 @@ if(isset($_SESSION['name_user']))
 
 else{
 	//show the login & register page
-$body = "<div id='loginBox'>
+$body = "<body id= 'homeB'><div id='loginBox'>
 			<h1>Login</h1>
 			Username:<br/>
 			<input type='text' id='logUser'><br/>

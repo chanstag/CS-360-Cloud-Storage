@@ -4,35 +4,26 @@ $userName = $_POST['user'];
 $pass = $_POST['pass'];
 $result = register($userName,$pass);
 if($result === "Success"){
-
-
 mkdir($userName);
 	session_start();
 	$_SESSION['name_user'] = $userName;
-	
+	$_SESSION['last'] = $userName;
+	$_SESSION['lastType'] = "personal";
 	echo 1;
 }
-
 else
 {
 	echo $result ;  
 }
-
-
-
 function register($username, $password){
 	$host = "localhost";          //"localhost:3036"
 	$user = "root";
 	$pass = "";       //"Ubuntu 14.04"
 	$database = "bigreddocstorage";
-
 		$conn = new mysqli($host,$user,$pass,$database);
-
 	if($conn->connect_errno){
 		return "No MySQL server";
-	}
-
-	
+	}	
 	$previousUsername = $conn->query("SELECT * FROM users WHERE username = '$username'");
 	if($previousUsername->num_rows == 0){
 		$previousUsername->free();
@@ -41,14 +32,12 @@ function register($username, $password){
 		$conn->real_escape_string($hashPassword);
 		$sql = "INSERT INTO groups ".
 			"(groupName,members) ".
-			"VALUES ('$username', '$username')";
-		
+			"VALUES ('$username', '$username')";		
 		$conn->query($sql);
 		$sql = "INSERT INTO users".
 			"(username,password) ".
 			"VALUES ".
-			"('$username','$hashPassword')";
-			
+			"('$username','$hashPassword')";			
 		$conn->query($sql);
 		$conn->close();
 		return "Success";

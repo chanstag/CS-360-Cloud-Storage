@@ -3,7 +3,8 @@
 session_start();
 $path = $_POST['user'];
 $type = $_POST['type'];
-
+$_SESSION['last'] = $path;
+$_SESSION['lastType'] = $type;
 if($type == "group"){
 	echo  "<div class='menuBox' style='height:10px'><div class='smaller left'><div class='button right' style='width:130px' onclick='search(\"$path\")'>Add Member</div></div>
 	<div class='right smaller'>
@@ -11,16 +12,11 @@ if($type == "group"){
 			</div>
 	<div class='left smaller'>
 				<div class='button right' style='width:130px' onclick='viewMembers(\"$path\")'>View Members</div>
-			</div>
-			
-						
+			</div>		
 			</div>";
 }
 
 if ($handle = opendir($path)) {
-
-
-   
     while (false !== ($entry = readdir($handle))) {
         if(!($entry === "." || $entry === "..")){
 		

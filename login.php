@@ -7,6 +7,8 @@ if(!($result === "No MySQL server" || $result === "User not registered or passwo
 
 	session_start();
 	$_SESSION['name_user'] = $userName;
+	$_SESSION['last'] = $userName;
+	$_SESSION['lastType'] = "personal";
 	echo 1;
 }
 else {
