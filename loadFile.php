@@ -17,6 +17,7 @@ if($type == "group"){
 }
 
 if ($handle = opendir($path)) {
+	echo "<div class='right centered' id='title' >$path</div>";
     while (false !== ($entry = readdir($handle))) {
         if(!($entry === "." || $entry === "..")){
 		

@@ -219,7 +219,7 @@ function viewMembers(i){
 	//alert("fourth");
 	
 }
-function search(i){
+function search(){
 	
 	//alert("third");
 	var xhttp = new XMLHttpRequest();
@@ -232,7 +232,25 @@ function search(i){
 	};
 	xhttp.open("POST", "search.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send("group="+i);
+	xhttp.send();
+	//alert("fourth");
+	
+}
+
+function findUser(){
+	
+	//alert("third");
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function()
+	{
+		if (xhttp.readyState == 4 && xhttp.status == 200)
+		{
+			e('content').innerHTML = xhttp.responseText;
+		}
+	};
+	xhttp.open("POST", "search.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send("search="+e('findUser').value);
 	//alert("fourth");
 	
 }

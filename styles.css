@@ -168,3 +168,16 @@
     background-color: #f8f8ff;
     font-size: 15px;
 }
+
+#title
+{
+	height:40px; 
+	width:400px;
+	font-size:30px;
+	padding:5px 0px;
+	border: 1px solid #0000ff;
+	background-color: #f8f8ff;
+	position: fixed;
+	right: 140px;
+	top:68px;
+}
