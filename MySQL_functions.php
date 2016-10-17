@@ -75,9 +75,6 @@ function logout($username){
 }
 
 function getMySQLConnection(){
-	$host = "localhost";
-	$user = "root";
-	$pass = "Ubuntu14.04";
 
 	$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
 	
@@ -92,7 +89,7 @@ function getMySQLConnection(){
 		$user = "root";
 		$pass = "Ubuntu14.04";
 
-		$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+		$conn = getMySQLConnection();
 
 		if($conn->connect_error){
 			$conn->close;
@@ -113,11 +110,8 @@ function getMySQLConnection(){
 }*/
 //Makes a group for one person, Can also be used to add a member to a preexisting group
 function makeGroup($groupname, string $username){
-		$host = "localhost:3036";
-		$user = "root";
-		$pass = "Ubuntu14.04";
 
-		$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+		$conn = getMySQLConnection();
 
 		if($conn->connect_error){
 			$conn->close;
@@ -135,11 +129,8 @@ function makeGroup($groupname, string $username){
 }
 //Removes an entire group
 function removeGroup($groupName){
-		$host = "localhost:3036";
-		$user = "root";
-		$pass = "Ubuntu14.04";
 
-		$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+		$conn = getMySQLConnection();
 
 		if($conn->connect_error){
 			$conn->close;
@@ -163,11 +154,8 @@ function removeGroup($groupName){
 }
 //Removes single user from group
 function removeUserFromGroup($groupName, string $username){
-		$host = "localhost:3036";
-		$user = "root";
-		$pass = "Ubuntu14.04";
 
-		$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+		$conn = getMySQLConnection();
 
 		if($conn->connect_error){
 			$conn->close;
@@ -185,11 +173,7 @@ function removeUserFromGroup($groupName, string $username){
 //Removes multiple users form a group
 function removeUsersFromGroup($groupName, array $users){
 	for($i = 0; i < count($users); $i++){
-		$host = "localhost:3036";
-		$user = "root";
-		$pass = "Ubuntu14.04";
-
-		$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+		$conn = getMySQLConnection();
 
 		if($conn->connect_error){
 			$conn->close;
@@ -207,11 +191,8 @@ function removeUsersFromGroup($groupName, array $users){
 
 //Removes User from database
 function removeUser($username){
-		$host = "localhost:3036";
-		$user = "root";
-		$pass = "Ubuntu14.04";
 
-		$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+		$conn = getMySQLConnection();
 
 		if($conn->connect_error){
 			$conn->close;
@@ -238,7 +219,7 @@ function getAllGroups($username){
 		$user = "root";
 		$pass = "Ubuntu14.04";
 
-		$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+		$conn = getMySQLConnection();
 
 		if($conn->connect_error){
 			$conn->close;
@@ -260,11 +241,8 @@ function getAllGroups($username){
 
 //Gives all the users in a given group returns an array if successful
 function getAllUsers($groupName){
-		$host = "localhost:3036";
-		$user = "root";
-		$pass = "Ubuntu14.04";
 
-		$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+		$conn = getMySQLConnection();
 
 		if($conn->connect_error){
 			$conn->close;
