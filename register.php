@@ -17,7 +17,7 @@ else
 {
 	echo $result ;  
 }
-function register($username, $password){
+
 	$host = "localhost";          //"localhost:3036"
 	$user = "root";
 	$pass = "";       //"Ubuntu 14.04"
