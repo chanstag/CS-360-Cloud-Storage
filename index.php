@@ -52,6 +52,7 @@ if(isset($_SESSION['name_user']))
 		
 	</body>
 </html>	";
+session_unset();
 	
 }//<br><br><br><br><br><br><br>
 
