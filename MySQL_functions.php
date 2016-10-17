@@ -126,7 +126,7 @@ function makeGroup($groupname, string $username){
 					" VALUES ('$groupname','$usersname')";
 			$conn->query($sql);
 			$conn->close();
-			return "Success";
+			return 1;
 		}
 	
 }

@@ -16,7 +16,7 @@ foreach($nameArray as $letter){
 }
 
 
-$host = "localhost";
+		$host = "localhost";
 		$user = "root";
 		$pass = "";
 

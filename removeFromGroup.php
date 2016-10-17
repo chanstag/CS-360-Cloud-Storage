@@ -1,5 +1,6 @@
 <?php
 
+include 'MySQL_functions.php';
 $groupName = $_POST['group'];
 $username = $_POST['user'];
 
@@ -11,25 +12,5 @@ else{
 	echo "Failure to Remove User";
 }
 
-//Removes single user from group
-function removeUserFromGroup($groupName, string $username){
-		$host = "localhost";
-	$user = "root";
-	$pass = "";
-
-		$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
-
-		if($conn->connect_error){
-			$conn->close;
-			return "No MySQL server";
-		}
-		else{
-			$sql = "DELETE FROM groups WHERE groupName = '$groupName' AND members = '$username'";
-			$conn->query($sql);
-			$conn->close();
-			return "Success";
-		}
-	
-}
 
 ?>
