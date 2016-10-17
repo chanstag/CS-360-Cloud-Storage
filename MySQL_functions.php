@@ -86,8 +86,8 @@ function getMySQLConnection(){
 
 //Makes a group including all the users in the array, Can also be used to add multiple members
 //to a preexisting group
-function makeGroup($groupname, array $users){
-	for($i = 0; i < count($users); i++){
+/*function makeGroup($groupname, array $users){
+	for($i = 0; i < count($users); $i++){
 		$host = "localhost:3036";
 		$user = "root";
 		$pass = "Ubuntu14.04";
@@ -110,7 +110,7 @@ function makeGroup($groupname, array $users){
 	
 	
 	
-}
+}*/
 //Makes a group for one person, Can also be used to add a member to a preexisting group
 function makeGroup($groupname, string $username){
 		$host = "localhost:3036";
@@ -184,7 +184,7 @@ function removeUserFromGroup($groupName, string $username){
 
 //Removes multiple users form a group
 function removeUsersFromGroup($groupName, array $users){
-	for($i = 0; i < count($users); i++){
+	for($i = 0; i < count($users); $i++){
 		$host = "localhost:3036";
 		$user = "root";
 		$pass = "Ubuntu14.04";
@@ -248,9 +248,9 @@ function getAllGroups($username){
 			$sql = "SELECT FROM groups WHERE member = $username";
 			$result = $conn->query($sql);
 			$groups = [];
-			for($i = 0; i < $result->num_rows; i++){
-				if($row = info->fetch_assoc()){
-					groups[$i] = $row["groupName"];
+			for($i = 0; i < $result->num_rows; $i++){
+				if($row = $result->fetch_assoc()){
+					$groups[$i] = $row["groupName"];
 				}
 			}
 			$conn->close();
@@ -274,9 +274,9 @@ function getAllUsers($groupName){
 			$sql = "SELECT FROM groups WHERE groupName = $groupName";
 			$result = $conn->query($sql);
 			$users = [];
-			for($i = 0; i < $result->num_rows; i++){
-				if($row = info->fetch_assoc()){
-					users[$i] = $row["member"];
+			for($i = 0; i < $result->num_rows; $i++){
+				if($row = $result->fetch_assoc()){
+					$users[$i] = $row["member"];
 				}
 			}
 			$conn->close();
