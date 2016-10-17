@@ -91,6 +91,73 @@ $body = "<body id= 'homeB'><div id='loginBox'>
 echo $top.$body;
 
 
+function login($username,$password){
+	$host = "localhost:3036";
+	$user = "root";
+	$pass = "Ubuntu14.04";
 
+	$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+
+	if($conn->connect_errno){
+		$conn->close;
+		return "No MySQL server";
+	}
+	$info = $conn->query("SELECT * FROM users WHERE username = '$username'");
+	if($info->num_rows > 0){
+		while($row = $info->fetch_assoc()){
+			if(password_verify($password,$row["password"])){
+				$info->free;
+				$conn->close;
+				return "Login User: ". $username;
+			}
+		}	
+	}
+	else{
+		$info->free;
+		$conn->close;
+		return "User not registered or password incorrect";
+	}
+}
+
+function register($username, $password){
+	$host = "localhost:3036";
+	$user = "root";
+	$pass = "Ubuntu14.04";
+	$database = "bigreddocstorage";
+
+	$conn = new mysqli($host,$user,$pass,$database);
+
+	if($conn->connect_errno){
+		return "No MySQL server";
+	}
+
+	
+	$previousUsername = $conn->query("SELECT * FROM users WHERE username = '$username'");
+	if($previousUsername->num_rows == 0){
+		$previousUsername->free;
+		$conn->real_escape_string($username);
+		$hashPassword = password_hash($password, PASSWORD_DEFAULT);
+		$conn->real_escape_string($hashPassword);
+		$sql = "INSERT INTO groups ".
+			"(groupName) ".
+			"VALUES ('$username','$username')";
+		
+		$conn->query($sql);
+		$sql = "INSERT INTO users".
+			"(username,password,groups) ".
+			"VALUES ".
+			"('$username','$hashPassword','#username')";
+			
+		$conn->query($sql);
+		$conn->close();
+		return "Success";
+	}
+	else{
+		$previousUsername->free;
+		echo "not working";
+		$conn->close();
+		return "Username already exists";
+	}
+}
 
 ?>
