@@ -1,5 +1,7 @@
 <?php
 
+include 'MySQL_functions.php';
+
 $userName = $_POST['user'];
 $pass = $_POST['pass'];
 $result = register($userName,$pass);
@@ -35,9 +37,9 @@ function register($username, $password){
 			"VALUES ('$username', '$username')";		
 		$conn->query($sql);
 		$sql = "INSERT INTO users".
-			"(username,password) ".
+			"(username,password,LogStatus) ".
 			"VALUES ".
-			"('$username','$hashPassword')";			
+			"('$username','$hashPassword', '0')";			
 		$conn->query($sql);
 		$conn->close();
 		return "Success";

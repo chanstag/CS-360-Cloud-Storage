@@ -1,4 +1,5 @@
 <?php
+include 'MySQL_functions.php';
 
 $userName = $_POST['user'];
 $pass = $_POST['pass'];
@@ -14,7 +15,7 @@ if(!($result === "No MySQL server" || $result === "User not registered or passwo
 else {
 	echo $result;
 }
-	
+
 
 function login($username,$password){
 	$host = "localhost";

@@ -1,4 +1,93 @@
 <?php
+
+function login($username,$password){
+	$host = "localhost";
+	$user = "root";
+	$pass = "";
+
+	$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+
+	if($conn->connect_error){
+		$conn->close;
+		return "No MySQL server";
+	}
+	$info = $conn->query("SELECT * FROM users WHERE username = '$username'");
+	if($info->num_rows > 0){
+		while($row = $info->fetch_assoc()){
+			if(password_verify($password,$row["password"]) && $row["LogStatus"] == 0){
+				$info->free();
+				$conn->query('UPDATE users SET LogStatus=1 WHERE username=$username');
+				$conn->close();
+				return "Login User: ". $username;
+			}
+		}	
+	}
+	else{
+		$info->free();
+		$conn->close();
+		return "User not registered or password incorrect";
+	}
+}
+
+function register($username, $password){
+	$host = "localhost";          //"localhost:3036"
+	$user = "root";
+	$pass = "";       //"Ubuntu 14.04"
+	$database = "bigreddocstorage";
+		$conn = new mysqli($host,$user,$pass,$database);
+	if($conn->connect_errno){
+		return "No MySQL server";
+	}	
+	$previousUsername = $conn->query("SELECT * FROM users WHERE username = '$username'");
+	if($previousUsername->num_rows == 0){
+		$previousUsername->free();
+		$conn->real_escape_string($username);
+		$hashPassword = password_hash($password, PASSWORD_DEFAULT);
+		$conn->real_escape_string($hashPassword);
+		$sql = "INSERT INTO groups ".
+			"(groupName,members) ".
+			"VALUES ('$username', '$username')";		
+		$conn->query($sql);
+		$sql = "INSERT INTO users".
+			"(username,password,LogStatus) ".
+			"VALUES ".
+			"('$username','$hashPassword', '0')";			
+		$conn->query($sql);
+		$conn->close();
+		return "Success";
+	}
+	else{
+		$previousUsername->free();
+		echo "not working";
+		$conn->close();
+		return "Username already exists";
+	}
+}
+
+function logout($username){
+	$conn = getMySQLConnection();
+	
+	if($conn->connect_error){
+		$conn->close;
+		return "No MySQL server";
+	}
+	
+	$conn->query('UPDATE users SET LogStatus=0 WHERE username = $username');
+	$conn->close();
+	return "Logout Successful";
+	
+}
+
+function getMySQLConnection(){
+	$host = "localhost";
+	$user = "root";
+	$pass = "";
+
+	$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
+	
+	return $conn;
+}
+
 //Makes a group including all the users in the array, Can also be used to add multiple members
 //to a preexisting group
 function makeGroup($groupname, array $users){
