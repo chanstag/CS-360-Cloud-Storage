@@ -5,7 +5,7 @@ function login($username,$password){
 	$user = "root";
 	$pass = "";
 
-	$conn = getMySQLConnection();
+	$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
 
 	if($conn->connect_error){
 		$conn->close;
