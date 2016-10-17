@@ -75,9 +75,9 @@ function logout($username){
 }
 
 function getMySQLConnection(){
-	$host = "localhost"
+	$host = "localhost";
 	$user = "root";
-	$pass = "Ubuntu14.04"
+	$pass = "Ubuntu14.04";
 
 	$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
 	
