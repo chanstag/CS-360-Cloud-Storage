@@ -30,11 +30,7 @@ function login($username,$password){
 }
 
 function register($username, $password){
-	$host = "localhost";          //"localhost:3036"
-	$user = "root";
-	$pass = "";       //"Ubuntu 14.04"
-	$database = "bigreddocstorage";
-		$conn = new mysqli($host,$user,$pass,$database);
+	$conn = getMySQLConnection();
 	if($conn->connect_errno){
 		return "No MySQL server";
 	}	
