@@ -50,7 +50,6 @@ function register(){
 		{
 			if (xhttp.readyState == 4 && xhttp.status == 200)
 			{
-				alert(this.readyState);
 				if(xhttp.responseText == "1")
 				{
 					window.location.reload(true);
