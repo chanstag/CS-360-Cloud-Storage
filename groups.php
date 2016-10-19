@@ -5,7 +5,7 @@ $name = $_SESSION['name_user'];
 
 $host = "localhost";
 $user = "root";
-$pass = "";
+$pass = "Ubuntu14.04";
 
 $conn = new mysqli($host,$user,$pass,"bigreddocstorage");
 
