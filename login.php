@@ -4,7 +4,7 @@ include 'MySQL_functions.php';
 $userName = $_POST['user'];
 $pass = $_POST['pass'];
 $result = login($userName,$pass);
-if(!($result === "No MySQL server" || $result === "User not registered or password incorrect")){
+if(!($result === "No MySQL server" || $result === "User not registered or password incorrect" || $result === "")){
 
 	session_start();
 	$_SESSION['name_user'] = $userName;

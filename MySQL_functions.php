@@ -5,6 +5,10 @@ function login($username,$password){
 	$user = "root";
 	$pass = "";
 
+	if($username === ""){
+		return "Try Again jackass";
+	}
+	
 	$conn = getMySQLConnection();
 
 	if($conn->connect_error){
@@ -32,6 +36,9 @@ function login($username,$password){
 
 function register($username, $password){
 	$conn = getMySQLConnection();
+	if($username === ""){
+		return "Try again JackAss";
+	}
 	if($conn->connect_errno){
 		return "No MySQL server";
 	}	
