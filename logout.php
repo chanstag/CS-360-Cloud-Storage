@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$username = $_SESSION['name_user']
+$username = $_SESSION['name_user'];
 
 include 'MySQL_functions.php';
 logout($username);
