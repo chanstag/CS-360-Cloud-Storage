@@ -1,11 +1,13 @@
 <?php
 
 session_start();
-$path = $_POST['user'];
+$name = $_POST['user'];
 $type = $_POST['type'];
-$_SESSION['last'] = $path;
+$_SESSION['last'] = $name;
 $_SESSION['lastType'] = $type;
+$path = "users/".$name;
 if($type == "group"){
+	$path = $name;
 	echo  "<div class='menuBox' style='height:10px'><div class='smaller left'><div class='button right' style='width:130px' onclick='search(\"$path\")'>Add Member</div></div>
 	<div class='right smaller'>
 				<div class='button right' style='width:130px' onclick='groupRemove(\"$path\")'>Remove Group</div>
