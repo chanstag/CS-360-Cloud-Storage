@@ -16,6 +16,7 @@ function login($username,$password){
 		return "No MySQL server";
 	}
 	$info = $conn->query("SELECT * FROM users WHERE username = '$username' AND LogStatus = 0");
+	// it seems to be skipping this if and going to the else
 	if($info->num_rows > 0){
 		while($row = $info->fetch_assoc()){
 			if(password_verify($password,$row["password"])/* && $row["LogStatus"] == 0*/){
