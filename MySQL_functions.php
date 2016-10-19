@@ -18,7 +18,7 @@ function login($username,$password){
 	$info = $conn->query("SELECT * FROM users WHERE username = '$username' AND LogStatus = 0");
 	if($info->num_rows > 0){
 		while($row = $info->fetch_assoc()){
-			if(password_verify($password,$row["password"]) && $row["LogStatus"] == 0){
+			if(password_verify($password,$row["password"])/* && $row["LogStatus"] == 0*/){
 				$info->free();
 				$conn->query("UPDATE users SET LogStatus=1 WHERE username='$username'");
 				$conn->close();
