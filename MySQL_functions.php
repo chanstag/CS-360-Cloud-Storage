@@ -37,7 +37,7 @@ function login($username,$password){
 function register($username, $password){
 	$conn = getMySQLConnection();
 	if($username === ""){
-		return "Try again JackAss";
+		return "Fuck you Chris";
 	}
 	if($conn->connect_errno){
 		return "No MySQL server";
