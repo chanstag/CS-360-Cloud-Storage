@@ -11,7 +11,7 @@ function login($username,$password){
 		$conn->close;
 		return "No MySQL server";
 	}
-	$info = $conn->query("SELECT * FROM users WHERE username = '$username'");
+	$info = $conn->query("SELECT * FROM users WHERE username = '$username' AND LogStatus = 0");
 	if($info->num_rows > 0){
 		while($row = $info->fetch_assoc()){
 			if(password_verify($password,$row["password"]) && $row["LogStatus"] == 0){
@@ -20,13 +20,14 @@ function login($username,$password){
 				$conn->close();
 				return "Login User: ". $username;
 			}
-		}	
+		}
 	}
 	else{
 		$info->free();
 		$conn->close();
 		return "User not registered or password incorrect";
 	}
+	
 }
 
 function register($username, $password){
