@@ -16,7 +16,7 @@ function login($username,$password){
 		while($row = $info->fetch_assoc()){
 			if(password_verify($password,$row["password"]) && $row["LogStatus"] == 0){
 				$info->free();
-				$conn->query('UPDATE users SET LogStatus=1 WHERE username=$username');
+				$conn->query("UPDATE users SET LogStatus=1 WHERE username='$username'");
 				$conn->close();
 				return "Login User: ". $username;
 			}
