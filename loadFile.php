@@ -19,10 +19,9 @@ if($type == "group"){
 }
 
 if ($handle = opendir($path)) {
-	echo "<div class='right centered' id='title' >$path</div>";
+	echo "<div class='right centered' id='title' >$name</div>";
     while (false !== ($entry = readdir($handle))) {
         if(!($entry === "." || $entry === "..")){
-		
 		echo "<div class='under'>
                 <div class='right picWrap'><a href='delete.php?file=".$entry."'><img src='images/delete.png' height='43'></a></div>
                         <div class='right picWrap'><a href='download.php?file=".$entry."'><img src='images/down.png' height='43'></a></div>
