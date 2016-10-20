@@ -5,9 +5,9 @@ $name = $_POST['user'];
 $type = $_POST['type'];
 $_SESSION['last'] = $name;
 $_SESSION['lastType'] = $type;
-$path = "users/".$name;
+$path = "/var/www/html/users/".$name;
 if($type == "group"){
-	$path = $name;
+	$path = "var/www/html/".$name;
 	echo  "<div class='menuBox' style='height:10px'><div class='smaller left'><div class='button right' style='width:130px' onclick='search(\"$path\")'>Add Member</div></div>
 	<div class='right smaller'>
 				<div class='button right' style='width:130px' onclick='groupRemove(\"$path\")'>Remove Group</div>
@@ -23,7 +23,7 @@ if ($handle = opendir($path)) {
     while (false !== ($entry = readdir($handle))) {
         if(!($entry === "." || $entry === "..")){
 		echo "<div class='under'>
-                <div class='right picWrap'><a href='delete.php?file=".$entry."'><img src='images/delete.png' height='43'></a></div>
+                <div class='right picWrap'><a href='delete.php?file=".$entry."' onclick=\"return confirm('Delete File?');\"><img src='images/delete.png' height='43'></a></div>
                         <div class='right picWrap'><a href='download.php?file=".$entry."'><img src='images/down.png' height='43'></a></div>
                         <div class='menuBox'>$entry</div><div/>";
                 }
