@@ -7,7 +7,8 @@ $pass = $_POST['pass'];
 $result = register($userName,$pass);
 if($result === "Success"){
 	//Problems in this area
-	//mkdir('/var/www/html/users/'.$userName);
+	mkdir('/var/www/html/users/'.$userName);
+
 	if(mkdir($userName)){
 		session_start();
 		$_SESSION['name_user'] = $userName;
