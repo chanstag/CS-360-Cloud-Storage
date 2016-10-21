@@ -7,7 +7,7 @@ $_SESSION['last'] = $name;
 $_SESSION['lastType'] = $type;
 $path = "/var/www/html/users/".$name;
 if($type == "group"){
-	$path = "var/www/html/".$name;
+	$path = "/var/www/html/".$name;
 	echo  "<div class='menuBox' style='height:10px'><div class='smaller left'><div class='button right' style='width:130px' onclick='search(\"$path\")'>Add Member</div></div>
 	<div class='right smaller'>
 				<div class='button right' style='width:130px' onclick='groupRemove(\"$path\")'>Remove Group</div>

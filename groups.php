@@ -14,7 +14,7 @@ if($conn->connect_error){
 	echo "No MySQL server";
 }
 
-$result = $conn->query("SELECT (groupName) FROM groups WHERE members = '$name'");
+$result = $conn->query("SELECT (groupName) FROM groups WHERE member = '$name'");
 
 echo "<div class='menuBox'><div width='50'><div class='button right' onclick='groupCreate()'>Create</div>Enter Group Name: <input type='text' id='groupName'></div></div>";
 
