@@ -3,7 +3,8 @@
 
 #homeB
 {
-	background-image: url("images/sky.jpg");
+	background-image: url("images/background.jpg");
+	/*background-image: url("images/sky.jpg");*/
 	background-size: 100%;
 	background-repeat:no-repeat;
 	background-attachment: fixed;
@@ -143,6 +144,14 @@
 	padding: 19px 0px;
 	background-color: #f8f8ff;
 	border: 1px solid #0000ff;
+}
+
+.fileData {
+	border: 1px solid #0000ff;
+	float: right;
+	margin-right: 50px;
+	padding: 5px;
+
 }
 
 .picWrap
