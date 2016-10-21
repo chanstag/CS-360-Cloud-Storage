@@ -6,7 +6,7 @@ $userName = $_POST['user'];
 $pass = $_POST['pass'];
 $result = register($userName,$pass);
 if($result === "Success"){
-	mkdir("users/".$userName);
+	mkdir("var/www/html/users/".$userName);
 	session_start();
 	$_SESSION['name_user'] = $userName;
 	$_SESSION['last'] = $userName;
