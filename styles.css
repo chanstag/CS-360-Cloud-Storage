@@ -3,7 +3,8 @@
 
 #homeB
 {
-	background-image: url("images/sky.jpg");
+	background-image: url("images/background.jpg");
+	/*background-image: url("images/sky.jpg");*/
 	background-size: 100%;
 	background-repeat:no-repeat;
 	background-attachment: fixed;
