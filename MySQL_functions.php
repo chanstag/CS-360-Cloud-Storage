@@ -6,7 +6,7 @@ function login($username,$password){
 	$pass = "";
 
 	if($username === ""){
-		return "Try Again jackass";
+		return "";
 	}
 	
 	$conn = getMySQLConnection();
@@ -32,6 +32,7 @@ function login($username,$password){
 		$conn->close();
 		return "User not registered or password incorrect";
 	}
+	return "";
 	
 }
 
