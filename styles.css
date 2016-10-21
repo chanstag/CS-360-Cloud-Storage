@@ -3,7 +3,8 @@
 
 #homeB
 {
-	background-image: url("../images/sky.jpg");
+	background-image: url("images/background.jpg");
+	/*background-image: url("images/sky.jpg");*/
 	background-size: 100%;
 	background-repeat:no-repeat;
 	background-attachment: fixed;
@@ -105,10 +106,23 @@
 	margin: 21px 0px;
 }
 
-.content
+.headMenu
+{
+	width: 100px;
+	font-size: 16px;
+	padding: 25px 0px;
+	background-color: #f8f8ff;
+}
+
+.headMenu:hover
+{
+	background-color: #ffffff;
+}
+
+#content
 {
 	width: 80%;
-	margin: 78px 10% 0px;
+	margin: 10px 10% 0px;
 	min-height: 200px;
 	background-color: #f8f8ff;
 	border: 1px solid #0000ff;
@@ -132,10 +146,47 @@
 	border: 1px solid #0000ff;
 }
 
+.fileData {
+	border: 1px solid #0000ff;
+	float: right;
+	margin-right: 50px;
+	padding: 5px;
+
+}
+
 .picWrap
 {
 	height: 43px;
 	padding: 5px;
 	background-color: #f8f8ff;
 	border: 1px solid #0000ff;
+}
+
+.smaller
+{
+	width: 18%;
+	margin: 0px 2%;
+}
+
+#form {
+    margin: 78px 10% 0px;
+    width: 350px;
+    color: #0000ff;
+    border: 1px solid #0000ff;
+    padding: 20px;
+    background-color: #f8f8ff;
+    font-size: 15px;
+}
+
+#title
+{
+	height:40px; 
+	width:400px;
+	font-size:30px;
+	padding:5px 0px;
+	border: 1px solid #0000ff;
+	background-color: #f8f8ff;
+	position: fixed;
+	right: 140px;
+	top:68px;
 }

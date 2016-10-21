@@ -1,63 +1,69 @@
 <?php
 
+include 'MySQL_functions.php';
 session_start();
 
-$back = "id= 'homeB'";
-$title = "Cloud Storage";
-$name = "smith";
+
 $top= " <!DOCTYPE html>
 <html>
-<head>
-<title>$title</title>
+	<head>
+		<title>Cloud Storage</title>
 
-<link rel='icon' href='images/cloud.png'>
-<link rel='stylesheet' type='text/css' href='styles.css'>
-<script src='main.js'></script>
-</head>
-<body $back>";
+		<link rel='icon' href='images/cloud.png'>
+		<link rel='stylesheet' type='text/css' href='styles.css'>
+		<script src='main.js'></script>
+	</head>";
 
-$_SESSION['id_user'] = 1;
-$_SESSION['name_user'] = "Steve";
 
-if(isset($_SESSION['id_user']))
+if(isset($_SESSION['name_user']))
 {
 	//show the file storage for user
 	$name = $_SESSION['name_user'];
-	$body = "
-	<div id= 'headB'>	
-		<div class= 'right' id= 'userB' onclick='menu(\"menu\");'>
-			<div class= 'left centered' id= 'userMenu'>$name</div>
-			<img src= 'images/user.jpg' height='58'>			
+	$folder = $_SESSION['last'];
+	$type = $_SESSION['lastType'];
+	$body = "<body id= 'homeB' onload='loadFiles(\"$folder\", \"$type\");'>
+		<div id= 'headB'>	
+			<div class= 'right' id= 'userB' onclick='menu(\"menu\");'>
+				<div class= 'left centered' id= 'userMenu'>$name</div>
+				<img src= 'images/user.jpg' height='58'>			
+			</div>
+			<div class= 'right centered headMenu' id='group' onclick='group();'>Groups</div>
+			<div class= 'right centered headMenu' id='personal' onclick='loadFiles(\"$name\", \"personal\");'>Personal</div>
+			<div id= 'titlebox'>
+				<div id= 'headTitle'>CLOUD STORAGE PROJECT</div>
+			</div>
+			<div id='menu'>
+				<div class='centered menuBox' onclick='logout();'>Logout</div>
+			</div>
 		</div>
-		<div id= 'titlebox'>
-			<div id= 'headTitle'>CLOUD STORAGE PROJECT</div>
-		</div>
-		<div id='menu'>
-		<div class='centered menuBox'>Upload Files</div>
-		<div class='centered menuBox'>Logout</div>
-		</div>
-	</div>
-	
-		<div class='under content'>
-			<div class='right picWrap'><img src='images/delete.png' height='43'></div>
-			<div class='right picWrap'><img src='images/down.png' height='43'></div>
-			<div class='menuBox'>CS 360 Report</div>
-		</div>
-	
+		
+                <div id='form'>
+                        <form action='upload.php' method='post' enctype='multipart/form-data'>
+                                Select a File To Upload:
+                                <input type='file' name='fileToUpload' id='fileToUpload'>
+                                <br/>
+                                <input type='submit' value='Upload File' name='submit'>
+                        </form>
+                </div>
+		
+			<div class='under' id='content'>
+				
+			</div>
 	
 		
-	";
+	</body>
+</html>	";
 	
-}
+}//<br><br><br><br><br><br><br>
 
 else{
 	//show the login & register page
-$body = "<div id='loginBox'>
+$body = "<body id= 'homeB'><div id='loginBox'>
 			<h1>Login</h1>
-			Email:<br/>
-			<input type='text' id=''><br/>
+			Username:<br/>
+			<input type='text' id='logUser'><br/>
 			Password:<br/>
-			<input type='password' id=''><br/>
+			<input type='password' id='logPass'><br/>
 			<div class='buttonBox'>
 				<div class='button right' onclick='logreg();'>Register</div>
 				<div class='button' onclick='login();'>Login</div>
@@ -65,12 +71,8 @@ $body = "<div id='loginBox'>
 		</div>
 		<div id='regBox'>
 			<h1>Register</h1>
-			First Name:<br/>
-			<input type='text' id='firstName'><br/>
-			Last Name:<br/>
-			<input type='text' id='lastName'><br/>
-			Email:<br/>
-			<input type='text' id='registerEmail'><br/>
+			Username:<br/>
+			<input type='text' id='regUser'><br/>
 			Password:<br/>
 			<input type='password' id='registerPass'><br/>
 			Confirm Password:<br/>
@@ -80,62 +82,14 @@ $body = "<div id='loginBox'>
 				<div class='button' onclick='register();'>Register</div>
 			</div>
 			<div id='registerFail'>There was a problem registering, please try again later.</div>
+			<div id='lginFail'>There was a problem loging in, please try again later.</div>
 		</div>
 	</body>
 </html> ";
 }
+
 echo $top.$body;
 
-function login($username,$password){
-	$host = "localhost:3036";
-	$user = "root";
-	$pass = '"Ubuntu 14.04";
 
-	$conn = new mysqli($host,$user,$pass,"bigreddocstorage");
 
-	if($conn->connect-errno){
-		return "No MySQL server";
-	}
-	$hashPassword = passwordhash($password,PASSWORD_DEFAULT);
-	$registeredUser = $conn->query("SELECT * FROM users WHERE usernames = ".$username." AND passwords = ".$hashPassword);
-	if(!$registeredUser){
-		return "User not registered";
-	}
-	else{
-		return "User: ". $username;
-	}
-}
-
-function register($username, $password){
-	$host = "localhost:3036";
-	$user = "root";
-	$pass = "Ubuntu 14.04";
-	$database = "bigreddocstorage";
-
-	$conn = new mysqli($host,$user,$pass,$database);
-
-	if($conn->connect-errno){
-		return "No MySQL server";
-	}
-
-	
-	$previousUsername = $conn->query("SELECT * FROM users WHERE usernames = ".$username);
-	if(!$previousUsername){
-		$hashPassword = password_hash($password, PASSWORD_DEFAULT);
-		$sql = "INSERT TO groups".
-			"(groupName,members)".
-			"VALUES (".$username.")";
-		$conn->query($sql);
-		$sql = "INSERT TO users".
-			"(usernames,passwords,groups)".
-			"VALUES (".$username.",".$hashPassword.",".$username")";
-		$conn->query($sql);
-		$conn->close();
-		return "Success";
-	}
-	else{
-		$conn->close();
-		return "Username already exists";
-	}
-}
 ?>
