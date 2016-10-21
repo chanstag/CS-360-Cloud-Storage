@@ -1,4 +1,3 @@
-
 <?php
     session_start();
     //if there was no file selected, it prompts an alert and reloads the page

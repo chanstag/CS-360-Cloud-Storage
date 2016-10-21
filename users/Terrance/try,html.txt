@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Life</title>
+<link rel='stylesheet' type='text/css' href="css/basic.css">
+</head>
+<body>
+
+<h1>Homepage</h1>
+	<p class = 'para'>
+		sorry for the mess<br>
+		<a href='http://www.google.com'> Wrong page? </a>
+	</p>
+	<a href='secondpage'> <img src='images/short.jpg' width='250'> </a>
+	<br/>
+	
+	<p>
+		<img id= 'left' src='images/ent.jpg' width='250'>
+		<b>Ents</b>, called <i>Onodrim</i> (Tree-host) by the elves, are <br> a very old race that appeared in Middle-earth at the same time that the elves did. They were apparently<br> created by <u>Eru Il&uacute;vatar</u> at the behest of Yavanna after she learned<br> of Aul&euml;'s children, the Dwarves, knowing that they would want to fell trees.<br> Ents were envisioned as Shepherds of the <em>Huorns</em>, to protect the forests from orcs <br>and other perils.
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!--sub h<sub>2</sub>O  sup e<sup>x</sup>-->
+		<!-- comments -->
+	</p>
+	<ol> 
+		<li>Star Trek</li>
+		<li>Fullmetal</li>
+		<li>Avatar<ul>
+			<li>water</li>
+			<li>earth</li>
+		</ul></li>
+	</ol>
+	<dl>
+		<dt>Fullmetal</dt>
+		<dd>Alchemy</dd>
+		<dt>LOTR</dt>
+		<dd>Magic</dd>
+		<dt>Star Wars</dt>
+		<dd>Force</dd>
+	</dl>
+
+</body>
+</html> 
