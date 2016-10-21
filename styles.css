@@ -146,6 +146,14 @@
 	border: 1px solid #0000ff;
 }
 
+.fileData {
+	border: 1px solid #0000ff;
+	float: right;
+	margin-right: 50px;
+	padding: 5px;
+
+}
+
 .picWrap
 {
 	height: 43px;
