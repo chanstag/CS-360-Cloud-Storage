@@ -8,7 +8,7 @@ $result = register($userName,$pass);
 if($result === "Success"){
 	//Problems in this area
 	//mkdir('/var/www/html/users/'.$userName);
-	if(mkdir("/var/www/html/users/'$userName'")){
+	if(mkdir("/var/www/html/users/$userName")){
 		session_start();
 		$_SESSION['name_user'] = $userName;
 		$_SESSION['last'] = $userName;
