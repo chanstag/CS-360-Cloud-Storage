@@ -11,7 +11,7 @@ $conn = new mysqli($host,$user,$pass,"bigreddocstorage");
 
 if($conn->connect_error){
 	$conn->close;
-	//echo "No MySQL server";
+	echo "No MySQL server";
 }
 
 $result = $conn->query("SELECT (groupName) FROM groups WHERE members = '$name'");
