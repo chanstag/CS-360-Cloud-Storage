@@ -5,7 +5,7 @@ $name = $_POST['user'];
 $type = $_POST['type'];
 $_SESSION['last'] = $name;
 $_SESSION['lastType'] = $type;
-$path = "/var/www/html/users/".$name."/";
+$path = "/var/www/html/users/$name/";
 $fileSize;
 $date;
 if($type == "group"){
