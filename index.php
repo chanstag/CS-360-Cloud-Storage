@@ -48,7 +48,7 @@ if(isset($_SESSION['name_user']))
                 </div>
 		
 			<div class='under' id='content'>
-				".$content."
+				
 			</div>
 	
 		
