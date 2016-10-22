@@ -21,6 +21,7 @@ if(isset($_SESSION['name_user']))
 	$name = $_SESSION['name_user'];
 	$folder = $_SESSION['last'];
 	$type = $_SESSION['lastType'];
+	$content = $_SESSION['content'];
 	$body = "<body id= 'homeB' onload='loadFiles(\"$folder\", \"$type\");'>
 		<div id= 'headB'>	
 			<div class= 'right' id= 'userB' onclick='menu(\"menu\");'>
@@ -47,7 +48,7 @@ if(isset($_SESSION['name_user']))
                 </div>
 		
 			<div class='under' id='content'>
-				
+				$content
 			</div>
 	
 		
