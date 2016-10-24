@@ -30,6 +30,7 @@ if($result->num_rows > 0){
 	
 	}
 }
+echo "Still dumb";
 $result->free();
 $conn->close();
 echo $returnString;
