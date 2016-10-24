@@ -19,7 +19,7 @@ $result = $conn->query("SELECT (groupName) FROM groups WHERE members = '$name'")
 
 echo "<div class='menuBox'><div width='50'><div class='button right' onclick='groupCreate()'>Create</div>Enter Group Name: <input type='text' id='groupName'></div></div>";
 
-if($info->num_rows > 0){
+if($result->num_rows > 0){
 	while($row = $result->fetch_assoc()){
 	
 		$group = $row['groupName'];
