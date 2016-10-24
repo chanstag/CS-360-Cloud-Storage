@@ -128,7 +128,7 @@ function groupCreate()
 		};
 		xhttp.open("POST", "groupcreate.php", true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xhttp.send("&newGroup="+e('groupName').value);
+		xhttp.send("&newGroup="+e('groupName').value + "&member="+e('userMenu').innerHTML);
 		//alert("second");
 		
 	
