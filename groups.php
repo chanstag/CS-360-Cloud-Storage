@@ -19,6 +19,7 @@ echo "This should be working";
 
 $returnString = "<div class='menuBox'><div width='50'><div class='button right' onclick='groupCreate()'>Create</div>Enter Group Name: <input type='text' id='groupName'></div></div>";
 echo "This is bullshit";
+echo $result->num_rows;
 
 if($result->num_rows > 0){
 	echo "This is dumb";
@@ -30,7 +31,7 @@ if($result->num_rows > 0){
 	
 	}
 }
-echo "Still dumb";
+echo $returnString;
 $result->free();
 $conn->close();
 echo $returnString;
