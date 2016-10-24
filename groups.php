@@ -21,6 +21,7 @@ $returnString = "<div class='menuBox'><div width='50'><div class='button right' 
 echo "This is bullshit";
 
 if($result->num_rows > 0){
+	echo "This is dumb"
 	while($row = $result->fetch_assoc()){
 	
 		$group = $row['groupName'];
