@@ -24,7 +24,7 @@ if($result->num_rows > 0){
 	while($row = $result->fetch_assoc()){
 	
 		$group = $row['groupName'];
-		$returnString += "<div class='under'>		
+		$returnString = $returnString."<div class='under'>		
 				<div class='menuBox' onclick='loadFiles($group, group);'>$group</div><div/>";
 	
 	}
