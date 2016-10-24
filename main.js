@@ -116,7 +116,8 @@ function groupCreate()
 			{
 				if(xhttp.responseText == "1")
 				{
-					window.location.reload(true);
+					//window.location.reload(true);
+					group();
 				}
 				else
 				{
