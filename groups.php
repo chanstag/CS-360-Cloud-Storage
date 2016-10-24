@@ -24,7 +24,7 @@ if($info->num_rows > 0){
 	
 		$group = $row['groupName'];
 		echo "<div class='under'>		
-				<div class='menuBox' onclick='loadFiles(\"$group\", \"group\");'>$group</div><div/>";
+				<div class='menuBox' onclick='loadFiles($group, group);'>$group</div><div/>";
 	
 	}
 }
