@@ -19,7 +19,7 @@ echo "This should be working";
 
 $returnString = "<div class='menuBox'><div width='50'><div class='button right' onclick='groupCreate()'>Create</div>Enter Group Name: <input type='text' id='groupName'></div></div>";
 echo "This is bullshit";
-echo $returnString;
+
 if($result->num_rows > 0){
 	while($row = $result->fetch_assoc()){
 	
