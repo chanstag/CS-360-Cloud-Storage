@@ -28,6 +28,8 @@ if($info->num_rows > 0){
 	
 	}
 }
+$result->free();
+$conn->close();
 //echo "here";
 
 //if ($handle = opendir($path)) {

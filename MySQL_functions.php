@@ -122,7 +122,7 @@ function getMySQLConnection(){
 	
 }*/
 //Makes a group for one person, Can also be used to add a member to a preexisting group
-function makeGroup($groupname, string $username){
+function makeGroup($groupname, $username){
 
 		$conn = getMySQLConnection();
 
