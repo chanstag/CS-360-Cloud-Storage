@@ -19,15 +19,15 @@ $result = $conn->query("SELECT (groupName) FROM groups WHERE members = '$name'")
 
 echo "<div class='menuBox'><div width='50'><div class='button right' onclick='groupCreate()'>Create</div>Enter Group Name: <input type='text' id='groupName'></div></div>";
 
-if($result->num_rows > 0){
-	while($row = $result->fetch_assoc()){
+//if($result->num_rows > 0){
+//	while($row = $result->fetch_assoc()){
+//	
+//		$group = $row['groupName'];
+//		echo "<div class='under'>		
+//				<div class='menuBox' onclick='loadFiles($group, group);'>$group</div><div/>";
 	
-		$group = $row['groupName'];
-		echo "<div class='under'>		
-				<div class='menuBox' onclick='loadFiles($group, group);'>$group</div><div/>";
-	
-	}
-}
+//	}
+//}
 $result->free();
 $conn->close();
 //echo "here";
