@@ -8,17 +8,16 @@ $user = "root";
 $pass = "Ubuntu14.04";
 
 $conn = new mysqli($host,$user,$pass,"bigreddocstorage");
-echo "This is dumb";
+
 if($conn->connect_error){
 	$conn->close;
 	echo "No MySQL server";
 }
-echo "This is sorta working";
 $result = $conn->query("SELECT (groupName) FROM groups WHERE members = '$name'");
-echo "This should be working";
+
 
 $returnString = "<div class='menuBox'><div width='50'><div class='button right' onclick='groupCreate()'>Create</div>Enter Group Name: <input type='text' id='groupName'></div></div>";
-echo "This is bullshit";
+
 echo $result->num_rows;
 
 if($result->num_rows > 0){
