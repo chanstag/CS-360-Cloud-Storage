@@ -70,6 +70,10 @@
 	color: #e9e9ea;
 }
 
+#loginButton {
+	cursor: pointer;
+}
+
 /*CLOUD*/
 
 #headTitle
@@ -97,7 +101,9 @@
 #userB
 {
 	margin: 5px;
+	cursor: pointer;
 }
+
 
 #userMenu
 {
@@ -138,6 +144,7 @@
 	top: 63px;
 	right: 5px;
 }
+
 
 .menuBox
 {
@@ -189,4 +196,16 @@
 	position: fixed;
 	right: 140px;
 	top:68px;
+}
+
+#personal {
+	cursor: pointer;
+}
+
+#group {
+	cursor: pointer;
+}
+
+#logout {
+	cursor: pointer;
 }
