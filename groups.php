@@ -8,7 +8,7 @@ $user = "root";
 $pass = "Ubuntu14.04";
 
 $conn = new mysqli($host,$user,$pass,"bigreddocstorage");
-
+echo "This is dumb";
 if($conn->connect_error){
 	$conn->close;
 	echo "No MySQL server";
