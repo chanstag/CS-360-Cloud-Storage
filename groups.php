@@ -17,7 +17,7 @@ echo "This is sorta working";
 $result = $conn->query("SELECT (groupName) FROM groups WHERE members = '$name'");
 echo "This should be working";
 
-$returnString += "<div class='menuBox'><div width='50'><div class='button right' onclick='groupCreate()'>Create</div>Enter Group Name: <input type='text' id='groupName'></div></div>";
+$returnString = "<div class='menuBox'><div width='50'><div class='button right' onclick='groupCreate()'>Create</div>Enter Group Name: <input type='text' id='groupName'></div></div>";
 echo "This is bullshit";
 echo $returnString;
 if($result->num_rows > 0){
