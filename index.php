@@ -21,6 +21,7 @@ if(isset($_SESSION['name_user']))
 	$name = $_SESSION['name_user'];
 	$folder = $_SESSION['last'];
 	$type = $_SESSION['lastType'];
+	$content = $_SESSION['content'];
 	$body = "<body id= 'homeB' onload='loadFiles(\"$folder\", \"$type\");'>
 		<div id= 'headB'>	
 			<div class= 'right' id= 'userB' onclick='menu(\"menu\");'>
@@ -33,7 +34,7 @@ if(isset($_SESSION['name_user']))
 				<div id= 'headTitle'>CLOUD STORAGE PROJECT</div>
 			</div>
 			<div id='menu'>
-				<div class='centered menuBox' onclick='logout();'>Logout</div>
+				<div class='centered menuBox' id='logout' onclick='logout();'>Logout</div>
 			</div>
 		</div>
 		
@@ -65,8 +66,8 @@ $body = "<body id= 'homeB'><div id='loginBox'>
 			Password:<br/>
 			<input type='password' id='logPass'><br/>
 			<div class='buttonBox'>
-				<div class='button right' onclick='logreg();'>Register</div>
-				<div class='button' onclick='login();'>Login</div>
+				<div class='button right' id='loginButton' onclick='logreg();'>Register</div>
+				<div class='button' id='loginButton' onclick='login();'>Login</div>
 			</div>	
 		</div>
 		<div id='regBox'>

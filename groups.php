@@ -16,6 +16,7 @@ if($conn->connect_error){
 
 $result = $conn->query("SELECT (groupName) FROM groups WHERE member = '$name'");
 
+
 echo "<div class='menuBox'><div width='50'><div class='button right' onclick='groupCreate()'>Create</div>Enter Group Name: <input type='text' id='groupName'></div></div>";
 
 while($row = $result->fetch_assoc()){

@@ -136,6 +136,7 @@ function makeGroup($groupname, string $username){
 					" VALUES ('$groupname','$usersname')";
 			$conn->query($sql);
 			$conn->close();
+			mkdir("/var/www/html/users/$groupname");
 			return 1;
 		}
 	
