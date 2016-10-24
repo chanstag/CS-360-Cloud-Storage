@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-$name = $_SESSION['name_user'];
-
+//$name = $_SESSION['name_user'];
+$name = "Master";
 $host = "localhost";
 $user = "root";
 $pass = "Ubuntu14.04";
