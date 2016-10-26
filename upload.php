@@ -1,4 +1,6 @@
 <?php
+
+	$start = microtime();
     session_start();
     //if there was no file selected, it prompts an alert and reloads the page
     if(!isset($_FILES['fileToUpload']) || $_FILES['fileToUpload']['error'] == UPLOAD_ERR_NO_FILE) {
@@ -45,7 +47,11 @@
         // if everything is ok, try to upload file
         } else {
             	if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                	echo "The file ". basename($_FILES["fileToUpload"]["name"]). " has been uploaded.";
+					$end = microtime();
+$time = $end - $start;
+                	echo "<script type=\"text/javascript\">
+                  	   alert($time);
+              	      </script>The file ". basename($_FILES["fileToUpload"]["name"]). " has been uploaded.";
             	} else {
                 	echo "There was an error uploading your file.<br/>";
             	}

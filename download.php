@@ -1,5 +1,6 @@
 <?php
     session_start();
+	$start = microtime();
     $userName = $_SESSION['last'];
         if($_SESSION['lastType'] == "group"){
             $target_dir = "/var/www/html/" . $userName . "/";
@@ -24,5 +25,10 @@
         header('Content-Length:' . filesize($file_path));
         ob_clean();
         readfile($file_path);
+		$end = microtime();
+		$time = $end - $start;
+		echo '<script type="text/javascript">
+                  	   alert('.$time.');
+              	      </script>';
     }
 ?>

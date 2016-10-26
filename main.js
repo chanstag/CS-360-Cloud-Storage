@@ -135,6 +135,8 @@ function groupCreate()
 
 function login()
 {
+	var d = new Date();
+	var start = d.getTime();
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function()
 	{
@@ -142,6 +144,8 @@ function login()
 		{
 			if(xhttp.responseText == "1")
 			{
+				var end = d.getTime();
+				alert(end - start);
 				window.location.reload(true);
 			}
 			else
