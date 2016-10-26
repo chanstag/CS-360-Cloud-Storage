@@ -1,6 +1,6 @@
 <?php
 include 'MySQL_functions.php';
-
+$start = microtime();
 $userName = $_POST['user'];
 $pass = $_POST['pass'];
 $result = login($userName,$pass);
@@ -10,7 +10,8 @@ if(!($result === "No MySQL server" || $result === "User not registered or passwo
 	$_SESSION['name_user'] = $userName;
 	$_SESSION['last'] = $userName;
 	$_SESSION['lastType'] = "personal";
-	echo 1;
+	$end = microtime();
+	echo $end - $start;
 }
 else {
 	echo $result;

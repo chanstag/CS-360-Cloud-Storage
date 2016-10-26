@@ -142,15 +142,14 @@ function login()
 	{
 		if (xhttp.readyState == 4 && xhttp.status == 200)
 		{
-			if(xhttp.responseText == "1")
+			if(xhttp.responseText != "1")
 			{
-				var end = d.getTime();
-				alert(end - start);
+				alert(xhttp.responseText);
 				window.location.reload(true);
 			}
 			else
 			{
-				alert(xhttp.responseText);
+				
 				//s('loginFail').display = 'block';
 			}
 		}
