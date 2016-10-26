@@ -47,17 +47,18 @@
         // if everything is ok, try to upload file
         } else {
             	if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-					$end = microtime();
-$time = $end - $start;
-                	echo '<script type="text/javascript">
-                  	   alert('.$time.');
-              	      </script>'."The file ". basename($_FILES["fileToUpload"]["name"]). " has been uploaded.";
+					echo "The file ". basename($_FILES["fileToUpload"]["name"]). " has been uploaded.";
             	} else {
                 	echo "There was an error uploading your file.<br/>";
             	}
         }
         //if the files was uploaded ($isUploaded == 1) then redirect to the index page
         	if($isUploaded == 1) {
+				$end = microtime();
+$time = $end - $start;
+                	echo '<script type="text/javascript">
+                  	   alert('.$time.');
+              	      </script>';
             		header("Location: index.php"); //redirect to page after file is uploaded
         	} else 
             		echo "Your file was not uploaded successfully.";
