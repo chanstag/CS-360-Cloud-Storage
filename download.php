@@ -27,8 +27,6 @@
         readfile($file_path);
 		$end = microtime();
 		$time = $end - $start;
-		echo '<script type="text/javascript">
-                  	   alert('.$time.');
-              	      </script>';
+	$_SESSion['last'] = $time;
     }
 ?>
