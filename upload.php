@@ -49,9 +49,9 @@
             	if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 					$end = microtime();
 $time = $end - $start;
-                	echo "<script type=\"text/javascript\">
-                  	   alert($time);
-              	      </script>The file ". basename($_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                	echo '<script type="text/javascript">
+                  	   alert('.$time.');
+              	      </script>'."The file ". basename($_FILES["fileToUpload"]["name"]). " has been uploaded.";
             	} else {
                 	echo "There was an error uploading your file.<br/>";
             	}
