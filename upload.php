@@ -11,12 +11,7 @@
     }
     else {
         $userName = $_SESSION['last'];
-        if($_SESSION['lastType'] == "group") {
-                $target_dir = "/var/www/html/" . $userName . "/";
-        }
-        else {
-                $target_dir = "/var/www/html/users/" . $userName . "/";
-        }
+       	$target_dir = "/var/www/html/users/" . $userName . "/";
         $file = basename($_FILES["fileToUpload"]["name"]);
         $cleanFile = preg_replace('/[^A-Za-z0-9\-\(\)\. ]/', '', $file);
         $target_file = $target_dir . $cleanFile;
