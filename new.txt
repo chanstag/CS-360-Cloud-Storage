@@ -1,2 +1,0 @@
-hello guys
-sh: Q: command not found
